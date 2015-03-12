@@ -21,11 +21,12 @@ class Polynomial:
     #preprocess string into polynome tuples
     def preprocess(self, polynomial):
     
-        if "-" in polynomial:
+        if "-" in polynomial and "+" in polynomial:
             return None
         else:
+            
             #split the string into its different powers
-            components = polynomial.split("+")
+            components = polynomial.split("+") if "+" in polynomial else polynomial.split("-")
             for element in components:
                 if "^" in element:
                     #split the term into its coefficient 
